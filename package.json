@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/joehawkens/backend2/issues"
   },
-  "homepage": "https://github.com/joehawkens/backend2#readme"
+  "homepage": "https://github.com/joehawkens/backend2#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
