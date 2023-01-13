@@ -1,6 +1,7 @@
 const http = require('http');
 const port = 3003;
 const mongoose = require("mongoose");
+mongoose.set('strictQuery', true);
 require('dotenv').config();
 //console.log(process.env);
 const connectionString = process.env.DB_URI;
