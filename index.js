@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 mongoose.set('strictQuery', true);
 require('dotenv').config();
 //console.log(process.env);
-const connectionString = process.env.DB_URI;
+const connectionString = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@coding-blog-t0xf0.mongodb.net/<dbname>`
 
 
     // Connects to server + Database ===================================================================================
