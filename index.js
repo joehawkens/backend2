@@ -6,7 +6,7 @@ require('dotenv').config();
 const connectionString = process.env.DB_URI;
 
 
-    // Connects to server ===================================================================================
+    // Connects to server + Database ===================================================================================
 
     function connectToServer(){
 
