@@ -1,6 +1,7 @@
 const http = require('http')
 const port = 3003
 const dotenv = require("dotenv")
+const mongoose = require("mongoose");
 dotenv.config()
 
 
@@ -21,6 +22,11 @@ dotenv.config()
                 console.log("Connection to " + port)
             }
         })
+
+        mongoose.connect("mongodb+srv://goe:123@backend2.fcwlspd.mongodb.net/?retryWrites=true&w=majority", {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        });
 
     }
 
