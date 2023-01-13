@@ -1,9 +1,9 @@
-const http = require('http')
-const port = 3003
-const dotenv = require("dotenv")
+const http = require('http');
+const port = 3003;
 const mongoose = require("mongoose");
-dotenv.config()
-
+require('dotenv').config();
+//console.log(process.env);
+const connectionString = process.env.DB_URI;
 
 
     // Connects to server ===================================================================================
@@ -23,7 +23,7 @@ dotenv.config()
             }
         })
 
-        mongoose.connect("mongodb+srv://goe:123@backend2.fcwlspd.mongodb.net/?retryWrites=true&w=majority", {
+        mongoose.connect(connectionString, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         });
@@ -31,4 +31,4 @@ dotenv.config()
     }
 
 
-connectToServer();
+    connectToServer();
