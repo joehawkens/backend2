@@ -1,41 +1,29 @@
 const express = require('express');
-const mongoose = require('mongoose');
-mongoose.set('strictQuery', true);
-require('dotenv').config({ path: 'src/config.env' });
-const app = express();
-const port = process.env.port || 3000;
+var bodyParser = require('body-parser');
+const MongoClient = require('mongodb').MongoClient;
+require('dotenv').config();
 const connectionString = process.env.DB_URL
 
-// Database Connection =============================================
 
-mongoose.connect(connectionString);
-const database = mongoose.connection;
+async function main(){
+ 
+    const client = new MongoClient(connectionString);
+ 
+    try {
+        // Connect to the MongoDB cluster
+        await client.connect();
+ 
+        // Make the appropriate DB calls
+        await  listDatabases(client);
+ 
+    } catch (e) {
+        console.error(e);
+    } finally {
+        await client.close();
+    }
+}
 
-
-database.on('error',  (error) => {
-    console.log(error)
-})
-
-database.once('connected', () => {
-    console.log("Database Connected.")
-})
-
-
-// Express app =======================================================
-
-app.use(express.json);
-app.listen(port, () => {
-    console.log(`server started at ${port}`)
-})
-
-
-
-
-
-
-
-
-
+main().catch(console.error);
 
 
 
