@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router()
 
 // Getting all
-router.get('/', (req, res) => {
+router.get('/routes/contacts', (req, res) => {
     res.send('Hello World.')
 
 })
