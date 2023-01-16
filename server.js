@@ -2,16 +2,16 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
-const mongoose = require('mongoose');
 const PORT = process.env.PORT;
+const db = require('./db')
 
 
 // CONNECTION TO DATABASE ==============================================
-mongoose.set('strictQuery', true);
-mongoose.connect(process.env.DB_URL);
-const db =  mongoose.connection
-db.on('error', (error) => console.error(error))
-db.once('open', () => console.log('Connected to Database.'))
+// mongoose.set('strictQuery', true);
+// mongoose.connect(process.env.DB_URL);
+// const db =  mongoose.connection
+// db.on('error', (error) => console.error(error))
+// db.once('open', () => console.log('Connected to Database.'))
 
 
 
@@ -24,7 +24,11 @@ const contactsRouter = require('./routes/contacts');
 app.use('/contacts', contactsRouter);
 
 
+// CONNECTION TO SERVER/DB ===============================================
 
-// CONNECTION TO SERVER ===============================================
-app.listen(PORT, () => console.log("Server started."))
+db.connect(() => {
+
+    app.listen(PORT, () => console.log("Server started."))
+
+})
 

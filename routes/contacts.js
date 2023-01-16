@@ -1,9 +1,18 @@
+require('dotenv').config();
 const express = require('express');
 const router = express.Router()
+const db = require('../db');
+
+
 
 // Getting all
 router.get('/', (req, res) => {
-    res.send('Hello World.')
+    
+    db.get().collection('contacts').find({}).toArray()
+    .then((contacts) => {
+        console.log('Conacts', contacts);
+    });
+   // res.send('Hello World.')
 
 })
 
