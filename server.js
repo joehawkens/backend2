@@ -19,7 +19,6 @@ db.once('open', () => console.log('Connected to Database.'))
 app.use(express.json());
 
 
-
 // CONTACTS ROUTER
 const contactsRouter = require('./routes/contacts');
 app.use('/contacts', contactsRouter);

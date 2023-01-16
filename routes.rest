@@ -1,1 +1,1 @@
-GET https://backend2-qhgu.onrender.com
+GET http://localhost:3000/contacts

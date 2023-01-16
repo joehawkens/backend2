@@ -2,7 +2,7 @@
   "name": "backend2",
   "version": "1.0.0",
   "description": "Assignments from the Web Backend II class.",
-  "main": "src/index.js",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
