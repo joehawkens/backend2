@@ -9,11 +9,11 @@ const db =  mongoose.connection
 
 // CONNECT TO DB ============================================
 
-function connect() {
+function connect(callback) {
 
     db.on('error', (error) => console.error(error))
     db.once('open', () => console.log('Connected to Database.'))
-
+    callback();
 }
 
 function get() {
