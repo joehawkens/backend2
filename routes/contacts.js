@@ -8,10 +8,11 @@ const db = require('../db');
 // Getting all
 router.get('/', (req, res) => {
     
-    res.send(db.get().collection('contacts').find({}).toArray()
+    
+    db.get().collection('contacts').find({}).toArray()
     .then((contacts) => {
-        console.log('Conacts', contacts);
-    }));
+        res.send(contacts)
+    });
    // res.send('Hello World.')
 
 })

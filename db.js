@@ -1,3 +1,4 @@
+// mongodb+srv://<username>:<password>@cluster0.pfose.mongodb.net/<dbname>?retryWrites=true&w=majority
 // CONSTANTS / LIBRARIES ==============================================
 require('dotenv').config();
 const mongoose = require('mongoose');
