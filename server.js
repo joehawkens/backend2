@@ -14,16 +14,17 @@ db.on('error', (error) => console.error(error))
 db.once('open', () => console.log('Connected to Database.'))
 
 
-// CONNECTION TO SERVER ==============================================
+
+// ROUTES =============================================================
+app.use(express.json());
+
+
+// CONTACTS ROUTER
+const contactsRouter = require('./routes/contacts');
+app.use('/contacts', contactsRouter);
+
+
+
+// CONNECTION TO SERVER ===============================================
 app.listen(PORT, () => console.log("Server started."))
-
-
-// ROUTES ============================================================
-
-
-// CONTACTS ROUTE
-const contactsRoute = require('./routes/contacts');
-app.use(express.json);
-app.use('/contacts', contactsRoute);
-
 
