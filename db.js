@@ -10,21 +10,21 @@ const db =  mongoose.connection
 
 // CONNECT TO DB ============================================
 
-function connect(callback) {
+function connectDB(callback) {
 
     db.on('error', (error) => console.error(error))
     db.once('open', () => console.log('Connected to Database.'))
     callback();
 }
 
-function get() {
+function getDB() {
 
     return db;
 
 }
 
 
-function close(){
+function closeDB(){
 
     db.close();
 
@@ -32,7 +32,7 @@ function close(){
 
 
 module.exports = {
-    connect,
-    get,
-    close
+    connectDB,
+    getDB,
+    closeDB
 };

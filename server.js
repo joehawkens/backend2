@@ -3,20 +3,12 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT;
-const db = require('./db')
-
-
-// CONNECTION TO DATABASE ==============================================
-// mongoose.set('strictQuery', true);
-// mongoose.connect(process.env.DB_URL);
-// const db =  mongoose.connection
-// db.on('error', (error) => console.error(error))
-// db.once('open', () => console.log('Connected to Database.'))
+const db = require('./db');
 
 
 
 // ROUTES =============================================================
-app.use(express.json());
+app.use(express.json()); // This express middleware places parsed data in req.
 
 
 // CONTACTS ROUTER
@@ -26,7 +18,7 @@ app.use('/contacts', contactsRouter);
 
 // CONNECTION TO SERVER/DB ===============================================
 
-db.connect(() => {
+db.connectDB(() => {
 
     app.listen(PORT, () => console.log("Server started."))
 
