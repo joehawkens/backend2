@@ -80,12 +80,26 @@ router.patch('/:id', (req, res) => {
     } else {
         res.status(500).json({error: "Not a valid doc id."})
     }
-
-
-
-
 })
 
+
+router.put('/:id', (req, res) => {
+    
+    const updates = req.body;
+
+    if (ObjectId.isValid(req.params.id)){
+        db.getDB().collection('contacts')
+            .updateOne({_id: ObjectId(req.params.id)}, {$set: updates})
+            .then(result => {
+                res.status(200).json(result)
+            })
+            .catch(err => {
+                res.status(500).json({error: "Could not update the document."})
+            })
+    } else {
+        res.status(500).json({error: "Not a valid doc id."})
+    }
+})
 
 // Delete ======================================================================================================================
 router.delete('/:id', (req, res) => {

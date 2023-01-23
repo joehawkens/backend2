@@ -4,7 +4,7 @@ GET http://localhost:3000/contacts
 GET http://localhost:3000/contacts/63cc54527e5bcaca3f0ec57f
 ### POST contact
 POST http://localhost:3000/contacts
-### PATCH contact by ID
-PATCH http://localhost:3000/contacts/63bc985d1af3a02d129ad7a7
+### PUT contact by ID
+PUT http://localhost:3000/contacts/63bc985d1af3a02d129ad7a7
 ### DELETE contact by ID
 DELETE http://localhost:3000/contacts/63cc5f3b362f417ed51108c6
