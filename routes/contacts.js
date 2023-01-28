@@ -8,6 +8,16 @@ app.use(express.json());
 
 
 
+/**GET ALL
+ * @swagger
+ * /contacts:
+ *   get:
+ *     description: Get all Contacts.
+ *     responses:
+ *       200:
+ *         description: Success
+ * 
+ */
 
 // GET All ===================================================================================================================
 router.get('/', (req, res) => {
@@ -20,6 +30,23 @@ router.get('/', (req, res) => {
 
 })
 
+
+// ROUTES
+
+/**GET
+ * @swagger
+ * /contacts/{id}:
+ *   get:
+ *     description: Get a contact by ID.
+ *     parameters:
+ *        - in: path
+ *          name: id
+ *          description: ID of the user.
+ *     responses:
+ *       200:
+ *         description: Success
+ * 
+ */
 
 // GET One ===================================================================================================================
 router.get('/:id', (req, res) => {
@@ -42,6 +69,36 @@ router.get('/:id', (req, res) => {
 
 })
 
+
+/**POST
+ * @swagger
+ * /contacts:
+ *   post:
+ *     description: Create an existing contact.
+ *     parameters:
+ *        - in: body
+ *          name: user
+ *          description: The user to create
+ *          schema:
+ *              type: object
+ *              required:
+ *                - id: string
+ *              properties:
+ *                  firstName:
+ *                      type: string
+ *                  lastName:
+ *                      type: string
+ *                  email:
+ *                      type: string
+ *                  favColor:
+ *                      type: string
+ *                  birthday:
+ *                      type: string
+ *     responses:
+ *       200:
+ *         description: Success
+ * 
+ */
 
 // POST ========================================================================================================================
 router.post('/', (req, res) => {
@@ -83,6 +140,40 @@ router.patch('/:id', (req, res) => {
 })
 
 
+/**PUT
+ * @swagger
+ * /contacts/{id}:
+ *   put:
+ *     description: Update an existing contact.
+ *     parameters:
+ *        - in: path
+ *          name: id
+ *          description: ID of the user.
+ *        - in: body
+ *          name: user
+ *          description: The user to create
+ *          schema:
+ *              type: object
+ *              required:
+ *                - id: string
+ *              properties:
+ *                  firstName:
+ *                      type: string
+ *                  lastName:
+ *                      type: string
+ *                  email:
+ *                      type: string
+ *                  favColor:
+ *                      type: string
+ *                  birthday:
+ *                      type: string
+ *                  
+ *     responses:
+ *       200:
+ *         description: Success
+ * 
+ */
+
 router.put('/:id', (req, res) => {
     
     const updates = req.body;
@@ -100,6 +191,24 @@ router.put('/:id', (req, res) => {
         res.status(500).json({error: "Not a valid doc id."})
     }
 })
+
+/**DELETE
+ * @swagger
+ * /contacts/{id}:
+ *   delete:
+ *     description: Delete a contact by ID.
+ *     parameters:
+ *      - in: path
+ *        name: id
+ *        schema:
+ *            type: string
+ *        description: String id of user to delete.
+ *        required: true
+ *     responses:
+ *       200:
+ *         description: User was deleted.
+ * 
+ */
 
 // Delete ======================================================================================================================
 router.delete('/:id', (req, res) => {

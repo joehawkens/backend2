@@ -1,3 +1,5 @@
+### LOCALHOST
+
 ### GET All contacts
 GET http://localhost:3000/contacts
 ### GET contact by ID
@@ -8,3 +10,18 @@ POST http://localhost:3000/contacts
 PUT http://localhost:3000/contacts/63bc985d1af3a02d129ad7a7
 ### DELETE contact by ID
 DELETE http://localhost:3000/contacts/63cc5f3b362f417ed51108c6
+
+
+### RENDER
+
+
+### GET All contacts
+GET https://backend2-qhgu.onrender.com/contacts
+### GET contact by ID
+GET https://backend2-qhgu.onrender.com/contacts/63cc54527e5bcaca3f0ec57f
+### POST contact
+POST https://backend2-qhgu.onrender.com/contacts
+### PUT contact by ID
+PUT https://backend2-qhgu.onrender.com/contacts/63bc985d1af3a02d129ad7a7
+### DELETE contact by ID
+DELETE https://backend2-qhgu.onrender.com/contacts/63cc5f3b362f417ed51108c6
