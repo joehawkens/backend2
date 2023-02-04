@@ -14,7 +14,7 @@ const swaggerJsDoc = require('swagger-jsdoc');
 app.use(express.json()); // This express middleware places parsed data in req.
 
 
-// CONTACTS ROUTER
+//  CONTACTS ROUTER
 const contactsRouter = require('./routes/contacts');
 app.use('/contacts', contactsRouter);
 
