@@ -17,6 +17,7 @@ app.use(express.json()); // This express middleware places parsed data in req.
 //  CONTACTS ROUTER
 const contactsRouter = require('./routes/contacts');
 app.use('/contacts', contactsRouter);
+app.use('/', contactsRouter);
 
 
 // CONNECTION TO SERVER/DB ===============================================
